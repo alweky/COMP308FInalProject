@@ -1,0 +1,19 @@
+<section data-ng-controller="SurveyesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Surveyes</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="surveye in surveyes" data-ng-href="#!/surveyes/{{surveye._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="surveye.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="surveye.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="surveye.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!surveyes.$resolved || surveyes.length">
+    	No Surveyes yet, why don't you <a href="/#!/surveyes/create">create one</a>?
+    </div>
+</section>

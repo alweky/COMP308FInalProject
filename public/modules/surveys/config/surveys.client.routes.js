@@ -1,6 +1,6 @@
 'use strict';
 
-//Setting up route
+// Setting up route
 angular.module('surveys').config(['$stateProvider',
 	function($stateProvider) {
 		// Surveys state routing
@@ -8,6 +8,10 @@ angular.module('surveys').config(['$stateProvider',
 		state('listSurveys', {
 			url: '/surveys',
 			templateUrl: 'modules/surveys/views/list-surveys.client.view.html'
+		}).
+        state('thankSurveys', {
+			url: '/surveys/thankyou',
+			templateUrl: 'modules/surveys/views/thanks-survey.client.view.html'
 		}).
 		state('createSurvey', {
 			url: '/surveys/create',
@@ -20,6 +24,14 @@ angular.module('surveys').config(['$stateProvider',
 		state('editSurvey', {
 			url: '/surveys/:surveyId/edit',
 			templateUrl: 'modules/surveys/views/edit-survey.client.view.html'
+		}).
+		state('publicSurvey', {
+			url: '/public/:surveyId',
+			templateUrl: 'modules/surveys/views/view-public-survey.client.view.html'
+		}).
+        state('createSurveyQuestion', {
+			url: '/surveys/questions',
+			templateUrl: 'modules/surveys/views/create-survey-question.client.view.html'
 		});
 	}
 ]);

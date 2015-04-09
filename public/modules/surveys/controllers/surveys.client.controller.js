@@ -1,35 +1,39 @@
 'use strict';
 
-// Surveys controller
-angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',
-	function($scope, $stateParams, $location, Authentication, Surveys) {
+angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys', 'Articles'
+	function($scope, $stateParams, $location, Authentication, Surveys, Articles) {
 		$scope.authentication = Authentication;
 
-		// Create new Survey
 		$scope.create = function() {
-			// Create new Survey object
-			var survey = new Surveys ({
-				name: this.name
+			var survey = new Surveys({
+				title: this.title,
+				numQues: this.numQues,
+                surveyType: this.surveyType,
+                surveyAnsA: 0,
+                surveyAnsB: 0
 			});
-
-			// Redirect after save
+			var article = new Articles({
+				title: 'testTitle',
+				content: 'testContent',
+			})
+			article.$save(function(response){});
 			survey.$save(function(response) {
 				$location.path('surveys/' + response._id);
 
-				// Clear form fields
-				$scope.name = '';
+				$scope.title = '';
+				$scope.numQuest = '';
+                $scope.surveyType = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
 		};
-
-		// Remove existing Survey
+        
 		$scope.remove = function(survey) {
-			if ( survey ) { 
+			if (survey) {
 				survey.$remove();
 
 				for (var i in $scope.surveys) {
-					if ($scope.surveys [i] === survey) {
+					if ($scope.surveys[i] === survey) {
 						$scope.surveys.splice(i, 1);
 					}
 				}
@@ -40,7 +44,6 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 			}
 		};
 
-		// Update existing Survey
 		$scope.update = function() {
 			var survey = $scope.survey;
 
@@ -51,16 +54,54 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 			});
 		};
 
-		// Find a list of Surveys
 		$scope.find = function() {
 			$scope.surveys = Surveys.query();
 		};
 
-		// Find existing Survey
 		$scope.findOne = function() {
-			$scope.survey = Surveys.get({ 
+			$scope.survey = Surveys.get({
 				surveyId: $stateParams.surveyId
 			});
 		};
 	}
 ]);
+
+angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Surveys',
+	function($scope, $stateParams, $location, Surveys) {
+        
+        $scope.inputResult = function() {
+            var survey = $scope.survey;
+            var ansA = survey.surveyAnsA;
+            var ansB = survey.surveyAnsB;
+            if($scope.surveyAnswer == 1)
+            {
+                survey.surveyAnsA++;
+            }
+            else if($scope.surveyAnswer == 2)
+            {
+                survey.surveyAnsB++;
+            }
+            $scope.update();
+			console.log($stateParams.survyeId);
+            console.log($scope.surveyAnswer);            
+            console.log(survey.surveyAnsA + " " + survey.surveyAnsB);
+		};
+
+		$scope.update = function() {
+			var survey = $scope.survey;
+
+			survey.$update(function() {
+				$location.path('surveys/thankyou');
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
+
+		$scope.findOne = function() {
+			$scope.survey = Surveys.get({
+				surveyId: $stateParams.surveyId
+			});
+		};
+	}
+]);
+

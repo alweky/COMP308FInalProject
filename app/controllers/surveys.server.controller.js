@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 	_ = require('lodash');
 
 /**
- * Create a Survey
+ * Create a survey
  */
 exports.create = function(req, res) {
 	var survey = new Survey(req.body);
@@ -21,25 +21,25 @@ exports.create = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(survey);
+			res.json(survey);
 		}
 	});
 };
 
 /**
- * Show the current Survey
+ * Show the current survey
  */
 exports.read = function(req, res) {
-	res.jsonp(req.survey);
+	res.json(req.survey);
 };
 
 /**
- * Update a Survey
+ * Update a survey
  */
 exports.update = function(req, res) {
-	var survey = req.survey ;
+	var survey = req.survey;
 
-	survey = _.extend(survey , req.body);
+	survey = _.extend(survey, req.body);
 
 	survey.save(function(err) {
 		if (err) {
@@ -47,16 +47,16 @@ exports.update = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(survey);
+			res.json(survey);
 		}
 	});
 };
 
 /**
- * Delete an Survey
+ * Delete an survey
  */
 exports.delete = function(req, res) {
-	var survey = req.survey ;
+	var survey = req.survey;
 
 	survey.remove(function(err) {
 		if (err) {
@@ -64,7 +64,7 @@ exports.delete = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(survey);
+			res.json(survey);
 		}
 	});
 };
@@ -72,14 +72,14 @@ exports.delete = function(req, res) {
 /**
  * List of Surveys
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
 	Survey.find().sort('-created').populate('user', 'displayName').exec(function(err, surveys) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(surveys);
+			res.json(surveys);
 		}
 	});
 };
@@ -87,11 +87,11 @@ exports.list = function(req, res) {
 /**
  * Survey middleware
  */
-exports.surveyByID = function(req, res, next, id) { 
+exports.surveyByID = function(req, res, next, id) {
 	Survey.findById(id).populate('user', 'displayName').exec(function(err, survey) {
 		if (err) return next(err);
-		if (! survey) return next(new Error('Failed to load Survey ' + id));
-		req.survey = survey ;
+		if (!survey) return next(new Error('Failed to load survey ' + id));
+		req.survey = survey;
 		next();
 	});
 };
@@ -101,7 +101,9 @@ exports.surveyByID = function(req, res, next, id) {
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.survey.user.id !== req.user.id) {
-		return res.status(403).send('User is not authorized');
+		return res.status(403).send({
+			message: 'User is not authorized'
+		});
 	}
 	next();
 };

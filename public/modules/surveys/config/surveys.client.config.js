@@ -1,6 +1,6 @@
 'use strict';
 
-// Configuring the Articles module
+// Configuring the Surveys module
 angular.module('surveys').run(['Menus',
 	function(Menus) {
 		// Set top bar menu items

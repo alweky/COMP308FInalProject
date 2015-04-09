@@ -1,9 +1,10 @@
 'use strict';
 
-//Surveys service used to communicate Surveys REST endpoints
+//Surveys service used for communicating with the surveys REST endpoints
 angular.module('surveys').factory('Surveys', ['$resource',
 	function($resource) {
-		return $resource('surveys/:surveyId', { surveyId: '@_id'
+		return $resource('surveys/:surveyId', {
+			surveyId: '@_id'
 		}, {
 			update: {
 				method: 'PUT'

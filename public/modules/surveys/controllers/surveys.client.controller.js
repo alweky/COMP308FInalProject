@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys', 'Articles'
+angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',
 	function($scope, $stateParams, $location, Authentication, Surveys, Articles) {
 		$scope.authentication = Authentication;
 
@@ -12,11 +12,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                 surveyAnsA: 0,
                 surveyAnsB: 0
 			});
-			var article = new Articles({
-				title: 'testTitle',
-				content: 'testContent',
-			})
-			article.$save(function(response){});
+
 			survey.$save(function(response) {
 				$location.path('surveys/' + response._id);
 

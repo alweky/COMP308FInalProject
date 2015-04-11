@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',
-	function($scope, $stateParams, $location, Authentication, Surveys, Articles) {
+	function($scope, $stateParams, $location, Authentication, Surveys) {
 		$scope.authentication = Authentication;
 
 		$scope.create = function() {
@@ -51,6 +51,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 		};
 
 		$scope.find = function() {
+			console.log("find()");
 			$scope.surveys = Surveys.query();
 		};
 
@@ -64,6 +65,26 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 
 angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Surveys',
 	function($scope, $stateParams, $location, Surveys) {
+		
+		$scope.create = function() {
+			var survey = new Surveys({
+				title: this.title,
+				numQues: this.numQues,
+                surveyType: this.surveyType,
+                surveyAnsA: 0,
+                surveyAnsB: 0
+			});
+
+			survey.$save(function(response) {
+				$location.path('surveys/' + response._id);
+
+				$scope.title = '';
+				$scope.numQuest = '';
+                $scope.surveyType = '';
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
         
         $scope.inputResult = function() {
             var survey = $scope.survey;
@@ -100,4 +121,5 @@ angular.module('surveysQuestion').controller('SurveysQuestionController', ['$sco
 		};
 	}
 ]);
+
 

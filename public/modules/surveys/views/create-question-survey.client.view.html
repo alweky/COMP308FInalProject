@@ -1,0 +1,23 @@
+<section data-ng-controller="QuestionsController">
+	<div class="page-header">
+		<h1>New Survey Question</h1>
+	</div>
+	<div class="col-md-12">
+		<form name="questionForm" class="form-horizontal" data-ng-submit="create()">
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error': questionForm.title.$dirty && questionForm.title.$invalid }">
+					<label class="control-label" for="title">Question Title:</label>
+					<div class="controls">
+						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default" id="quesBtn">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

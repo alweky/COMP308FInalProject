@@ -46,6 +46,10 @@ var SurveySchema = new Schema({
     }
 });
 
+/**
+ * Question Schema
+ */
+
 var QuestionSchema = new Schema({
 	title: {
 		type: String,
@@ -57,6 +61,11 @@ var QuestionSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
+	questionNum: {
+		type: Number,
+		default: 0,
+        trim: true
+	},
     surveyAnsA: {
         type: Number,
         default: 0,
@@ -66,7 +75,13 @@ var QuestionSchema = new Schema({
         type: Number,
         default: 0,
         trim: true
-    }
+    },
+	surveyId: {
+		type: String,
+		default: '',
+		trim: true		
+	}
 });
 
 mongoose.model('Survey', SurveySchema);
+mongoose.model('Question', QuestionSchema);

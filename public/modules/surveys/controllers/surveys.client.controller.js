@@ -1,6 +1,9 @@
 'use strict';
+var surveyid;
+var quesNum = 0;
+var quesTotal;
 
-angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys',
+angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys', 
 	function($scope, $stateParams, $location, Authentication, Surveys) {
 		$scope.authentication = Authentication;
 
@@ -12,9 +15,13 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
                 surveyAnsA: 0,
                 surveyAnsB: 0
 			});
-
+			quesNum = 0;
+			quesTotal = this.numQues;
 			survey.$save(function(response) {
-				$location.path('surveys/' + response._id);
+				//$location.path('surveys/thankyou');
+				//$location.path('question/' + survey._id);
+				$location.path('questions/' + response._id);
+				surveyid = response._id;
 
 				$scope.title = '';
 				$scope.numQuest = '';
@@ -63,51 +70,43 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 	}
 ]);
 
-angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Surveys',
-	function($scope, $stateParams, $location, Surveys) {
+angular.module('questions').controller('QuestionsController', ['$scope', '$window', '$stateParams', '$location', 'Surveys', 'Questions',
+	function($scope, $window, $stateParams, $location, Surveys, Questions) {
+		
+		console.log('quesNum,surveyid' + quesNum + ' ' + surveyid);
+		
+		$scope.numQues = $window.numQues;
+		
+		//$scope.quesBtn.value = "Next";
 		
 		$scope.create = function() {
-			var survey = new Surveys({
+			var question = new Questions({
 				title: this.title,
-				numQues: this.numQues,
-                surveyType: this.surveyType,
+				questionNum: quesNum,
                 surveyAnsA: 0,
-                surveyAnsB: 0
+                surveyAnsB: 0,
+				surveyId: $stateParams.surveyId
 			});
-
-			survey.$save(function(response) {
-				$location.path('surveys/' + response._id);
-
+			quesNum++;
+			question.$save(function(response) {
+				//$location.path('question');
+				console.log('quesNumquesTotal' + quesNum + ' ' + quesTotal);
+							
 				$scope.title = '';
-				$scope.numQuest = '';
-                $scope.surveyType = '';
+				$scope.questionNum = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+			if(quesNum == quesTotal){
+				console.log('equal');
+				$location.path('surveys/' + $stateParams.surveyId);
+			}	
 		};
-        
-        $scope.inputResult = function() {
-            var survey = $scope.survey;
-            var ansA = survey.surveyAnsA;
-            var ansB = survey.surveyAnsB;
-            if($scope.surveyAnswer == 1)
-            {
-                survey.surveyAnsA++;
-            }
-            else if($scope.surveyAnswer == 2)
-            {
-                survey.surveyAnsB++;
-            }
-            $scope.update();
-			console.log($stateParams.survyeId);
-            console.log($scope.surveyAnswer);            
-            console.log(survey.surveyAnsA + " " + survey.surveyAnsB);
-		};
-
+		
 		$scope.update = function() {
-			var survey = $scope.survey;
+			var question = $scope.question;
 
-			survey.$update(function() {
+			question.$update(function() {
 				$location.path('surveys/thankyou');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
@@ -115,9 +114,54 @@ angular.module('surveysQuestion').controller('SurveysQuestionController', ['$sco
 		};
 
 		$scope.findOne = function() {
-			$scope.survey = Surveys.get({
+			$scope.question = Questions.get({
 				surveyId: $stateParams.surveyId
 			});
+		};
+	}
+]);
+
+angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Questions',
+	function($scope, $stateParams, $location, Questions) {
+		
+		$scope.inputResult = function() {
+            var question = $scope.question;
+            var ansA = question.surveyAnsA;
+            var ansB = question.surveyAnsB;
+            if($scope.questionAnswer == 1)
+            {
+                question.surveyAnsA++;
+            }
+            else if($scope.questionAnswer == 2)
+            {
+                question.surveyAnsB++;
+            }
+            $scope.update();
+            console.log($scope.surveyAnswer);            
+            console.log(question.surveyAnsA + " " + question.surveyAnsB);
+		};
+
+		$scope.update = function() {
+			var question = $scope.question;
+
+			question.$update(function() {
+				$location.path('surveys/thankyou');
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
+
+		$scope.find = function() {
+			console.log("find()");
+			$scope.question = Questions.query();
+		};
+		
+		$scope.findOne = function() {
+			$scope.question = Questions.get({
+				questionId: 552c15cca48ec2481635ff9e
+			});
+			console.log('findOne ' + $stateParams.surveyId);
+			console.log($scope.question.title);
 		};
 	}
 ]);

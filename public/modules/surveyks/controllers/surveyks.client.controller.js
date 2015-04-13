@@ -4,7 +4,9 @@
 angular.module('surveyks').controller('SurveyksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveyks',
 	function($scope, $stateParams, $location, Authentication, Surveyks) {
 		$scope.authentication = Authentication;
-
+		
+		console.log($stateParams.surveykId);
+		
 		// Create new Surveyk
 		$scope.create = function() {
 			// Create new Surveyk object

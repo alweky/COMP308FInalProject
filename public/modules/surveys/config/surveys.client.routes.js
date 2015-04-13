@@ -29,6 +29,10 @@ angular.module('surveys').config(['$stateProvider',
 			url: '/public/:surveyId',
 			templateUrl: 'modules/surveys/views/view-public-survey.client.view.html'
 		}).
+		state('createQuestion', {
+			url: '/questions/:surveyId',
+			templateUrl: 'modules/surveys/views/create-question-survey.client.view.html'
+		}).
         state('createSurveyQuestion', {
 			url: '/surveys/questions',
 			templateUrl: 'modules/surveys/views/create-survey-question.client.view.html'

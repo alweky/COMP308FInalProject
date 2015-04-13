@@ -5,104 +5,102 @@
  */
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
-	Survey = mongoose.model('Survey'),
-	_ = require('lodash'),
 	Question = mongoose.model('Question'),
 	_ = require('lodash');
 
 /**
- * Create a survey
+ * Create a question
  */
 exports.create = function(req, res) {
-	var survey = new Survey(req.body);
-	survey.user = req.user;
+	var question = new Question(req.body);
+	question.user = req.user;
 
-	survey.save(function(err) {
+	question.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(survey);
+			res.json(question);
 		}
 	});
 };
 
 /**
- * Show the current survey
+ * Show the current question
  */
 exports.read = function(req, res) {
-	res.json(req.survey);
+	res.json(req.question);
 };
 
 /**
- * Update a survey
+ * Update a question
  */
 exports.update = function(req, res) {
-	var survey = req.survey;
+	var question = req.question;
 
-	survey = _.extend(survey, req.body);
+	question = _.extend(question, req.body);
 
-	survey.save(function(err) {
+	question.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(survey);
+			res.json(question);
 		}
 	});
 };
 
 /**
- * Delete an survey
+ * Delete an question
  */
 exports.delete = function(req, res) {
-	var survey = req.survey;
+	var question = req.question;
 
-	survey.remove(function(err) {
+	question.remove(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(survey);
+			res.json(question);
 		}
 	});
 };
 
 /**
- * List of Surveys
+ * List of Questions
  */
 exports.list = function(req, res) {
-	Survey.find().sort('-created').populate('user', 'displayName').exec(function(err, surveys) {
+	Question.find().sort('-created').populate('user', 'displayName').exec(function(err, questions) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(surveys);
+			res.json(questions);
 		}
 	});
 };
 
 /**
- * Survey middleware
+ * Question middleware
  */
-exports.surveyByID = function(req, res, next, id) {
-	Survey.findById(id).populate('user', 'displayName').exec(function(err, survey) {
+exports.questionByID = function(req, res, next, id) {
+	Question.findById(id).populate('user', 'displayName').exec(function(err, question) {
 		if (err) return next(err);
-		if (!survey) return next(new Error('Failed to load survey ' + id));
-		req.survey = survey;
+		if (!question) return next(new Error('Failed to load question ' + id));
+		req.question = question;
 		next();
 	});
 };
 
 /**
- * Survey authorization middleware
+ * Question authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.survey.user.id !== req.user.id) {
+	if (req.question.user.id !== req.user.id) {
 		return res.status(403).send({
 			message: 'User is not authorized'
 		});

@@ -12,3 +12,15 @@ angular.module('surveys').factory('Surveys', ['$resource',
 		});
 	}
 ]);
+
+angular.module('questions').factory('Questions', ['$resource',
+	function($resource) {
+		return $resource('questions/:questionId', {
+			questionId: '@_id'
+		}, {
+			update: {
+				method: 'PUT'
+			}
+		});
+	}
+]);

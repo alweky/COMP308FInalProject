@@ -18,9 +18,13 @@ module.exports = function(app) {
 		.put(surveys.update)
 		.delete(users.requiresLogin, surveys.hasAuthorization, surveys.delete);
     
-    app.route('/public/:surveyId')
+/*     app.route('/public/:surveyId')
 		.get(question.read, question.list)
-		.put(question.update);
+		.put(question.update); */
+		
+	app.route('/public/:surveyId')
+		.get(surveys.read, surveys.list)
+		.put(surveys.update);		
 		
 	app.route('/questions')
 		.post(question.create)

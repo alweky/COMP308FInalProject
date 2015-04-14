@@ -1,15 +1,57 @@
-<section data-ng-controller="SurveysQuestionController" data-ng-init="findOne()">
+<section data-ng-controller="SurveysQuestionController" data-ng-init="findOne()" >
+	<div data-ng-show="survey.active == 1">
 	<div class="page-header">
-		<h1 data-ng-bind="question.title"></h1>
+		<h1 data-ng-bind="survey.title"></h1>
 	</div>
 	<form name="questionAns" class="form-horizontal"  data-ng-submit="inputResult()">
 		<!-- <div class="form-group">
 			<input type="radio" data-ng-model="question.ans" value="t">True<br/>
 			<input type="radio" data-ng-model="question.ans" value="f">False<br/>
 		</div> -->
+		<h3 data-ng-bind="survey.surveyQ1Title"></h3>
 		<div class="form-group">
 			<div class="col-xs-5 selectContainer">
-				<select class="form-control" name="questionAnswer" data-ng-model="questionAnswer" id="questionAnswer" required>
+				<select class="form-control" name="surveyAns1" data-ng-model="surveyAns1" id="surveyAns1" required>
+					<option value="">Choose a value</option>
+					<option value="1">True</option>
+					<option value="2">False</option>
+				</select>
+			</div>
+		</div>
+		<h3 data-ng-bind="survey.surveyQ2Title"></h3>
+		<div class="form-group">
+			<div class="col-xs-5 selectContainer">
+				<select class="form-control" name="surveyAns2" data-ng-model="surveyAns2" id="surveyAns2" required>
+					<option value="">Choose a value</option>
+					<option value="1">True</option>
+					<option value="2">False</option>
+				</select>
+			</div>
+		</div>
+		<h3 data-ng-bind="survey.surveyQ3Title"></h3>
+		<div class="form-group">
+			<div class="col-xs-5 selectContainer">
+				<select class="form-control" name="surveyAns3" data-ng-model="surveyAns3" id="surveyAns3" required>
+					<option value="">Choose a value</option>
+					<option value="1">True</option>
+					<option value="2">False</option>
+				</select>
+			</div>
+		</div>
+		<h3 data-ng-bind="survey.surveyQ4Title"></h3>
+		<div class="form-group">
+			<div class="col-xs-5 selectContainer">
+				<select class="form-control" name="surveyAns4" data-ng-model="surveyAns4" id="surveyAns4" required>
+					<option value="">Choose a value</option>
+					<option value="1">True</option>
+					<option value="2">False</option>
+				</select>
+			</div>
+		</div>
+		<h3 data-ng-bind="survey.surveyQ5Title"></h3>
+		<div class="form-group">
+			<div class="col-xs-5 selectContainer">
+				<select class="form-control" name="surveyAns5" data-ng-model="surveyAns5" id="surveyAns5" required>
 					<option value="">Choose a value</option>
 					<option value="1">True</option>
 					<option value="2">False</option>
@@ -32,4 +74,8 @@
 		</em>
 	</small> -->
 	<p class="lead" data-ng-bind="question.content"></p>
+	</div>
+	<div data-ng-show="survey.active == 0">
+		This survey is currently not active
+	</div>
 </section>

@@ -24,3 +24,15 @@ angular.module('questions').factory('Questions', ['$resource',
 		});
 	}
 ]);
+
+angular.module('surveysQuestion').factory('Questions', ['$resource',
+	function($resource) {
+		return $resource('public/:surveyId', {
+			surveyId: '@surveyId'
+		}, {
+			update: {
+				method: 'PUT'
+			}
+		});
+	}
+]);

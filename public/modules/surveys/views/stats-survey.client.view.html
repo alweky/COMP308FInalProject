@@ -1,86 +1,25 @@
-<section data-ng-controller="SurveysController">
+<section data-ng-controller="SurveysQuestionController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>New Survey</h1>
+		<h1 data-ng-bind="survey.title"></h1>
 	</div>
-	<div class="col-md-12">
-		<form name="surveyForm" class="form-horizontal" data-ng-submit="create()" novalidate>
-			<fieldset>
-				<div class="form-group" ng-class="{ 'has-error': surveyForm.title.$dirty && surveyForm.title.$invalid }">
-					<label class="control-label" for="title">Survey Title:</label>
-					<div class="controls">
-						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
-					</div>
-				</div>
-                <!-- <div class="form-group">
-                    <label class="control-label" for="content">Number of Questions</label>
-                    <div class="col-xs-5 selectContainer">
-                        <select class="form-control" name="numQues" data-ng-model="numQues" id="numQues" required>
-                            <option value="">Choose a value</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="content">Survey Type</label>
-                    <div class="col-xs-5 selectContainer">
-                        <select class="form-control" data-ng-model="surveyType" id="surveyType" name="surveyType" required>
-                            <option value="">Choose a type</option>
-                            <option value="tf">True or False</option>
-                            <option value="sa">Short Answer</option>
-                        </select>
-                    </div>
-                </div> -->
-				<div class="form-group">
-					<label class="control-label" for="title">Question 1 Title:</label>
-					<div class="controls">
-						<input name="surveyQ1Title" type="text" data-ng-model="surveyQ1Title" id="surveyQ1Title" class="form-control" placeholder="surveyQ1Title" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="title">Question 2 Title:</label>
-					<div class="controls">
-						<input name="surveyQ2Title" type="text" data-ng-model="surveyQ2Title" id="surveyQ2Title" class="form-control" placeholder="surveyQ2Title" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="title">Question 3 Title:</label>
-					<div class="controls">
-						<input name="surveyQ3Title" type="text" data-ng-model="surveyQ3Title" id="surveyQ3Title" class="form-control" placeholder="surveyQ3Title" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="title">Question 4 Title:</label>
-					<div class="controls">
-						<input name="surveyQ4Title" type="text" data-ng-model="surveyQ4Title" id="surveyQ4Title" class="form-control" placeholder="surveyQ2Title" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="title">Question 5 Title:</label>
-					<div class="controls">
-						<input name="surveyQ5Title" type="text" data-ng-model="surveyQ5Title" id="surveyQ5Title" class="form-control" placeholder="surveyQ5Title" required>
-					</div>
-				</div>
-				<div class="form-group">
-                    <label class="control-label" for="content">Active</label>
-                    <div class="col-xs-5 selectContainer">
-                        <select class="form-control" name="active" data-ng-model="active" id="active" required>
-                            <option value="">Choose a value</option>
-                            <option value="1">Active</option>
-                            <option value="2">Non-Active</option>
-                        </select>
-                    </div>
-                </div>
-				<div class="form-group">
-					<input type="submit" class="btn btn-default">
-				</div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-			</fieldset>
-		</form>
+	<div class="col-md-13" data-ng-show="authentication.user._id == survey.user._id">
+		<h3 data-ng-bind="survey.surveyQ1Title"></h3>
+		<h5>True: {{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>
+		<h5>False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>
+		<h3 data-ng-bind="survey.surveyQ2Title"></h3>
+		<h5>True: {{survey.surveyQ2AnsA * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %</h5>
+		<h5>False: {{survey.surveyQ2AnsB * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %</h5>
+		<h3 data-ng-bind="survey.surveyQ3Title"></h3>
+		<h5>True: {{survey.surveyQ3AnsA * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %</h5>
+		<h5>False: {{survey.surveyQ3AnsB * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %</h5>
+		<h3 data-ng-bind="survey.surveyQ4Title"></h3>
+		<h5>True: {{survey.surveyQ4AnsA * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %</h5>
+		<h5>False: {{survey.surveyQ4AnsB * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %</h5>
+		<h3 data-ng-bind="survey.surveyQ5Title"></h3>
+		<h5>True: {{survey.surveyQ5AnsA * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %</h5>
+		<h5>False: {{survey.surveyQ5AnsB * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %</h5>
+	</div>
+	<div data-ng-show="authentication.user._id != survey.user._id">
+		<h3>You do not have permission to see the stats for this Survey</h3>
 	</div>
 </section>

@@ -104,7 +104,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 	}
 ]);
 
-angular.module('questions').controller('QuestionsController', ['$scope', '$window', '$stateParams', '$location', 'Surveys', 'Questions',
+/* angular.module('questions').controller('QuestionsController', ['$scope', '$window', '$stateParams', '$location', 'Surveys', 'Questions',
 	function($scope, $window, $stateParams, $location, Surveys, Questions) {
 		
 		console.log('quesNum,surveyid' + quesNum + ' ' + surveyid);
@@ -153,10 +153,11 @@ angular.module('questions').controller('QuestionsController', ['$scope', '$windo
 			});
 		};
 	}
-]);
+]); */
 
-angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Surveys', 'Questions',
-	function($scope, $stateParams, $location, Surveys, Questions) {
+angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Surveys', 'Questions', 'Authentication',
+	function($scope, $stateParams, $location, Surveys, Questions, Authentication) {
+		$scope.authentication = Authentication;		
 		
 		$scope.inputResult = function() {
             var survey = $scope.survey;

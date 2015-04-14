@@ -2,7 +2,7 @@
 	<div class="page-header">
 		<h1 data-ng-bind="survey.title"></h1>
 	</div>
-	<div class="col-md-13" data-ng-show="authentication.user._id == survey.user._id">
+	<div class="col-md-12" data-ng-show="authentication.user._id == survey.user._id">
 		<h3 data-ng-bind="survey.surveyQ1Title"></h3>
 		<h5>True: {{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>
 		<h5>False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>

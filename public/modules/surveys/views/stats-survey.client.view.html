@@ -6,6 +6,16 @@
 	<div class="col-md-12" data-ng-show="authentication.user._id == survey.user._id">
 		<div data-ng-show="survey.numQues >= 1">
 			<h3 data-ng-bind="survey.surveyQ1Title"></h3>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}}%">
+					True: {{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %
+				 </div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}}%">
+					False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %
+				 </div>
+			</div>
 			<h5>True: {{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>
 			<h5>False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>
 		</div>

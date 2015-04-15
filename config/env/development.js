@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/survey-app-dev',
-	//db: 'mongodb://admin:admin@ds049631.mongolab.com:49631/heroku_app35695970',
+	//db: 'mongodb://localhost/survey-app-dev',
+	db: 'mongodb://admin:admin@ds049631.mongolab.com:49631/heroku_app35695970',
 	app: {
 		title: 'Survey App - Development Environment'
 	},

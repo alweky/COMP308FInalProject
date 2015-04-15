@@ -16,8 +16,6 @@
 					False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %
 				 </div>
 			</div>
-			<h5>True: {{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %</h5>
 		</div>
 		<div data-ng-show="survey.numQues >= 2">
 			<h3 data-ng-bind="survey.surveyQ2Title"></h3>
@@ -31,8 +29,6 @@
 					False: {{survey.surveyQ2AnsB * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %
 				 </div>
 			</div>
-			<h5>True: {{survey.surveyQ2AnsA * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ2AnsB * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %</h5>
 		</div>
 		<div data-ng-show="survey.numQues >= 3">
 			<h3 data-ng-bind="survey.surveyQ3Title"></h3>
@@ -46,8 +42,6 @@
 					False: {{survey.surveyQ3AnsB * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %
 				 </div>
 			</div>
-			<h5>True: {{survey.surveyQ3AnsA * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ3AnsB * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %</h5>
 		</div>
 		<div data-ng-show="survey.numQues >= 4">
 			<h3 data-ng-bind="survey.surveyQ4Title"></h3>
@@ -61,8 +55,6 @@
 					False: {{survey.surveyQ4AnsB * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %
 				 </div>
 			</div>
-			<h5>True: {{survey.surveyQ4AnsA * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ4AnsB * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %</h5>
 		</div>
 		<div data-ng-show="survey.numQues >= 5">
 			<h3 data-ng-bind="survey.surveyQ5Title"></h3>
@@ -76,33 +68,71 @@
 					False: {{survey.surveyQ5AnsB * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %
 				 </div>
 			</div>
-			<h5>True: {{survey.surveyQ5AnsA * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ5AnsB * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %</h5>
 		</div>
 		<div data-ng-show="survey.numQues >= 6">
 			<h3 data-ng-bind="survey.surveyQ6Title"></h3>
-			<h5>True: {{survey.surveyQ6AnsA * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ6AnsB * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %</h5>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ6AnsA * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}}%">
+					True: {{survey.surveyQ6AnsA * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %
+				 </div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ6AnsB * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}}%">
+					False: {{survey.surveyQ6AnsB * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %
+				 </div>
+			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 7">
 			<h3 data-ng-bind="survey.surveyQ7Title"></h3>
-			<h5>True: {{survey.surveyQ7AnsA * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ7AnsB * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %</h5>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ7AnsA * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}}%">
+					True: {{survey.surveyQ7AnsA * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %
+				 </div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ7AnsB * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}}%">
+					False: {{survey.surveyQ7AnsB * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %
+				 </div>
+			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 8">
 			<h3 data-ng-bind="survey.surveyQ8Title"></h3>
-			<h5>True: {{survey.surveyQ8AnsA * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ8AnsB * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %</h5>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ8AnsA * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}}%">
+					True: {{survey.surveyQ8AnsA * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %
+				 </div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ8AnsB * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}}%">
+					False: {{survey.surveyQ8AnsB * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %
+				 </div>
+			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 9">
 			<h3 data-ng-bind="survey.surveyQ9Title"></h3>
-			<h5>True: {{survey.surveyQ9AnsA * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ9AnsB * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %</h5>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ9AnsA * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}}%">
+					True: {{survey.surveyQ9AnsA * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %
+				 </div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ9AnsB * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}}%">
+					False: {{survey.surveyQ9AnsB * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %
+				 </div>
+			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 10">
 			<h3 data-ng-bind="survey.surveyQ10Title"></h3>
-			<h5>True: {{survey.surveyQ10AnsA * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %</h5>
-			<h5>False: {{survey.surveyQ10AnsB * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %</h5>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ10AnsA * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}}%">
+					True: {{survey.surveyQ10AnsA * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %
+				 </div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ10AnsB * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}}%">
+					False: {{survey.surveyQ10AnsB * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %
+				 </div>
+			</div>
 		</div>
 	</div>
 	<div data-ng-show="authentication.user._id != survey.user._id">

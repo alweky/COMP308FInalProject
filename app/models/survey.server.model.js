@@ -61,6 +61,11 @@ var SurveySchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'User'
 	},
+	numQues: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
 	surveyQ1Title: {
         type: String,
         default: '',
@@ -137,6 +142,86 @@ var SurveySchema = new Schema({
         trim: true
     },
     surveyQ5AnsB: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+	surveyQ6Title: {
+        type: String,
+        default: '',
+        trim: true,
+		required: 'Title cannot be blank'
+    },
+    surveyQ6AnsA: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+    surveyQ6AnsB: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+	surveyQ7Title: {
+        type: String,
+        default: '',
+        trim: true,
+		required: 'Title cannot be blank'
+    },
+    surveyQ7AnsA: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+    surveyQ7AnsB: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+	surveyQ8Title: {
+        type: String,
+        default: '',
+        trim: true,
+		required: 'Title cannot be blank'
+    },
+    surveyQ8AnsA: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+    surveyQ8AnsB: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+	surveyQ9Title: {
+        type: String,
+        default: '',
+        trim: true,
+		required: 'Title cannot be blank'
+    },
+    surveyQ9AnsA: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+    surveyQ9AnsB: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+	surveyQ10Title: {
+        type: String,
+        default: '',
+        trim: true,
+		required: 'Title cannot be blank'
+    },
+    surveyQ10AnsA: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+    surveyQ10AnsB: {
         type: Number,
         default: 0,
         trim: true

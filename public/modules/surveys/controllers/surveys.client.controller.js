@@ -34,25 +34,21 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 		$scope.create = function() {
 			var survey = new Surveys({
 				title: this.title,
-				surveyQ1Title: this.surveyQ1Title,
-				surveyQ2Title: this.surveyQ2Title,
-				surveyQ3Title: this.surveyQ3Title,
-				surveyQ4Title: this.surveyQ4Title,
-				surveyQ5Title: this.surveyQ5Title,
-                surveyQ1AnsA: 0,
-                surveyQ1AnsB: 0,
-				surveyQ2AnsA: 0,
-                surveyQ2AnsB: 0,
-				surveyQ3AnsA: 0,
-                surveyQ3AnsB: 0,
-				surveyQ4AnsA: 0,
-                surveyQ4AnsB: 0,
-				surveyQ5AnsA: 0,
-                surveyQ5AnsB: 0,
+				surveyQ1Title: 'Question 1 Title',
+				surveyQ2Title: 'Question 2 Title',
+				surveyQ3Title: 'Question 3 Title',
+				surveyQ4Title: 'Question 4 Title',
+				surveyQ5Title: 'Question 5 Title',
+				surveyQ6Title: 'Question 6 Title',
+				surveyQ7Title: 'Question 7 Title',
+				surveyQ8Title: 'Question 8 Title',
+				surveyQ9Title: 'Question 9 Title',
+				surveyQ10Title: 'Question 10 Title',
+				numQues: this.numQues,
 				active: this.active
 			});
 			survey.$save(function(response) {
-				$location.path('surveys/thankyou');
+				$location.path('surveys/' + response._id + '/question');
 				//$location.path('question/' + survey._id);
 				//$location.path('questions/' + response._id);
 				surveyid = response._id;
@@ -85,7 +81,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 			var survey = $scope.survey;
 
 			survey.$update(function() {
-				$location.path('surveys/' + survey._id);
+				$location.path('surveys');
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -202,6 +198,46 @@ angular.module('surveysQuestion').controller('SurveysQuestionController', ['$sco
             else if($scope.surveyAns5 == 2)
             {
                 survey.surveyQ5AnsB++;
+            }
+			if($scope.surveyAns6 == 1)
+            {
+                survey.surveyQ6AnsA++;
+            }
+            else if($scope.surveyAns6 == 2)
+            {
+                survey.surveyQ6AnsB++;
+            }
+			if($scope.surveyAns7 == 1)
+            {
+                survey.surveyQ7AnsA++;
+            }
+            else if($scope.surveyAns7 == 2)
+            {
+                survey.surveyQ7AnsB++;
+            }
+			if($scope.surveyAns8 == 1)
+            {
+                survey.surveyQ8AnsA++;
+            }
+            else if($scope.surveyAns8 == 2)
+            {
+                survey.surveyQ8AnsB++;
+            }
+			if($scope.surveyAns9 == 1)
+            {
+                survey.surveyQ9AnsA++;
+            }
+            else if($scope.surveyAns9 == 2)
+            {
+                survey.surveyQ9AnsB++;
+            }
+			if($scope.surveyAns10 == 1)
+            {
+                survey.surveyQ10AnsA++;
+            }
+            else if($scope.surveyAns10 == 2)
+            {
+                survey.surveyQ10AnsB++;
             }
             $scope.update();
             //console.log($scope.surveyAnswer);            

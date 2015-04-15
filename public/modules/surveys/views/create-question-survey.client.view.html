@@ -1,18 +1,72 @@
-<section data-ng-controller="QuestionsController">
+<section data-ng-controller="SurveysController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>New Survey Question</h1>
+		<h1>{{survey.title}}</h1>
 	</div>
-	<div class="col-md-12">
-		<form name="questionForm" class="form-horizontal" data-ng-submit="create()">
+	<div class="col-md-12" data-ng-show="authentication.user._id == survey.user._id">
+		<form name="surveyForm" class="form-horizontal" data-ng-submit="update(surveyForm.$valid)" novalidate>
 			<fieldset>
-				<div class="form-group" ng-class="{ 'has-error': questionForm.title.$dirty && questionForm.title.$invalid }">
-					<label class="control-label" for="title">Question Title:</label>
+				<div class="form-group" data-ng-show="survey.numQues >= 1">
+					<label class="control-label" for="title">Question 1 Title:</label>
 					<div class="controls">
-						<input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+						<input name="surveyQ1Title" type="text" data-ng-model="survey.surveyQ1Title" id="surveyQ1Title" class="form-control" placeholder="surveyQ1Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 2">
+					<label class="control-label" for="title">Question 2 Title:</label>
+					<div class="controls">
+						<input name="surveyQ2Title" type="text" data-ng-model="survey.surveyQ2Title" id="surveyQ2Title" class="form-control" placeholder="surveyQ2Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 3">
+					<label class="control-label" for="title">Question 3 Title:</label>
+					<div class="controls">
+						<input name="surveyQ3Title" type="text" data-ng-model="survey.surveyQ3Title" id="surveyQ3Title" class="form-control" placeholder="surveyQ3Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 4">
+					<label class="control-label" for="title">Question 4 Title:</label>
+					<div class="controls">
+						<input name="surveyQ4Title" type="text" data-ng-model="survey.surveyQ4Title" id="surveyQ4Title" class="form-control" placeholder="surveyQ2Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 5">
+					<label class="control-label" for="title">Question 5 Title:</label>
+					<div class="controls">
+						<input name="surveyQ5Title" type="text" data-ng-model="survey.surveyQ5Title" id="surveyQ5Title" class="form-control" placeholder="surveyQ5Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 6">
+					<label class="control-label" for="title">Question 6 Title:</label>
+					<div class="controls">
+						<input name="surveyQ5Title" type="text" data-ng-model="survey.surveyQ6Title" id="surveyQ6Title" class="form-control" placeholder="surveyQ6Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 7">
+					<label class="control-label" for="title">Question 7 Title:</label>
+					<div class="controls">
+						<input name="surveyQ7Title" type="text" data-ng-model="survey.surveyQ7Title" id="surveyQ7Title" class="form-control" placeholder="surveyQ7Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 8">
+					<label class="control-label" for="title">Question 8 Title:</label>
+					<div class="controls">
+						<input name="surveyQ8Title" type="text" data-ng-model="survey.surveyQ8Title" id="surveyQ8Title" class="form-control" placeholder="surveyQ8Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 9">
+					<label class="control-label" for="title">Question 9 Title:</label>
+					<div class="controls">
+						<input name="surveyQ9Title" type="text" data-ng-model="survey.surveyQ9Title" id="surveyQ9Title" class="form-control" placeholder="surveyQ9Title" required>
+					</div>
+				</div>
+				<div class="form-group" data-ng-show="survey.numQues >= 10">
+					<label class="control-label" for="title">Question 10 Title:</label>
+					<div class="controls">
+						<input name="surveyQ10Title" type="text" data-ng-model="survey.surveyQ10Title" id="surveyQ10Title" class="form-control" placeholder="surveyQ10Title" required>
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" class="btn btn-default" id="quesBtn">
+					<input type="submit" class="btn btn-default">
 				</div>
 				<div data-ng-show="error" class="text-danger">
 					<strong data-ng-bind="error"></strong>

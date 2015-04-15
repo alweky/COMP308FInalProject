@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="list-group" >
-	<h3 data-ng-show="surveys.length > 0">Your Surveys</h3>
+	<h3 data-ng-show="authentication.user._id != null">Your Surveys</h3>
 		<a data-ng-repeat="survey in surveys" data-ng-href="#!/surveys/{{survey._id}}" class="list-group-item" data-ng-show="authentication.user._id == survey.user._id" >			
 			<small class="list-group-item-text">
 				Posted on

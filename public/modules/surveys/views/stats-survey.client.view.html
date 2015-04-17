@@ -5,136 +5,186 @@
 	</div>
 	<div class="col-md-12" data-ng-show="authentication.user._id == survey.user._id">
 		<div data-ng-show="survey.numQues >= 1">
-			<h3 data-ng-bind="survey.surveyQ1Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}}%">
-					True: {{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ1Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}}%">
-					False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}}%">
+						True: {{survey.surveyQ1AnsA * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}}%">
+						False: {{survey.surveyQ1AnsB * 100 / (survey.surveyQ1AnsA + survey.surveyQ1AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 2">
-			<h3 data-ng-bind="survey.surveyQ2Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ2AnsA * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}}%">
-					True: {{survey.surveyQ2AnsA * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ2Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ2AnsB * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}}%">
-					False: {{survey.surveyQ2AnsB * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ2AnsA * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}}%">
+						True: {{survey.surveyQ2AnsA * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ2AnsB * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}}%">
+						False: {{survey.surveyQ2AnsB * 100 / (survey.surveyQ2AnsA + survey.surveyQ2AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 3">
-			<h3 data-ng-bind="survey.surveyQ3Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ3AnsA * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}}%">
-					True: {{survey.surveyQ3AnsA * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ3Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ3AnsB * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}}%">
-					False: {{survey.surveyQ3AnsB * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ3AnsA * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}}%">
+						True: {{survey.surveyQ3AnsA * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ3AnsB * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}}%">
+						False: {{survey.surveyQ3AnsB * 100 / (survey.surveyQ3AnsA + survey.surveyQ3AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 4">
-			<h3 data-ng-bind="survey.surveyQ4Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ4AnsA * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}}%">
-					True: {{survey.surveyQ4AnsA * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ4Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ4AnsB * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}}%">
-					False: {{survey.surveyQ4AnsB * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ4AnsA * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}}%">
+						True: {{survey.surveyQ4AnsA * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ4AnsB * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}}%">
+						False: {{survey.surveyQ4AnsB * 100 / (survey.surveyQ4AnsA + survey.surveyQ4AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 5">
-			<h3 data-ng-bind="survey.surveyQ5Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ5AnsA * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}}%">
-					True: {{survey.surveyQ5AnsA * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ5Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ5AnsB * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}}%">
-					False: {{survey.surveyQ5AnsB * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ5AnsA * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}}%">
+						True: {{survey.surveyQ5AnsA * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ5AnsB * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}}%">
+						False: {{survey.surveyQ5AnsB * 100 / (survey.surveyQ5AnsA + survey.surveyQ5AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 6">
-			<h3 data-ng-bind="survey.surveyQ6Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ6AnsA * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}}%">
-					True: {{survey.surveyQ6AnsA * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ6Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ6AnsB * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}}%">
-					False: {{survey.surveyQ6AnsB * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ6AnsA * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}}%">
+						True: {{survey.surveyQ6AnsA * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ6AnsB * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}}%">
+						False: {{survey.surveyQ6AnsB * 100 / (survey.surveyQ6AnsA + survey.surveyQ6AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 7">
-			<h3 data-ng-bind="survey.surveyQ7Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ7AnsA * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}}%">
-					True: {{survey.surveyQ7AnsA * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ7Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ7AnsB * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}}%">
-					False: {{survey.surveyQ7AnsB * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ7AnsA * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}}%">
+						True: {{survey.surveyQ7AnsA * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ7AnsB * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}}%">
+						False: {{survey.surveyQ7AnsB * 100 / (survey.surveyQ7AnsA + survey.surveyQ7AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 8">
-			<h3 data-ng-bind="survey.surveyQ8Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ8AnsA * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}}%">
-					True: {{survey.surveyQ8AnsA * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ8Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ8AnsB * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}}%">
-					False: {{survey.surveyQ8AnsB * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ8AnsA * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}}%">
+						True: {{survey.surveyQ8AnsA * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ8AnsB * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}}%">
+						False: {{survey.surveyQ8AnsB * 100 / (survey.surveyQ8AnsA + survey.surveyQ8AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 9">
-			<h3 data-ng-bind="survey.surveyQ9Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ9AnsA * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}}%">
-					True: {{survey.surveyQ9AnsA * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ9Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ9AnsB * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}}%">
-					False: {{survey.surveyQ9AnsB * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ9AnsA * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}}%">
+						True: {{survey.surveyQ9AnsA * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ9AnsB * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}}%">
+						False: {{survey.surveyQ9AnsB * 100 / (survey.surveyQ9AnsA + survey.surveyQ9AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 		<div data-ng-show="survey.numQues >= 10">
-			<h3 data-ng-bind="survey.surveyQ10Title"></h3>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ10AnsA * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}}%">
-					True: {{survey.surveyQ10AnsA * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %
-				 </div>
+			<div class="col-md-4">
+				<h3 data-ng-bind="survey.surveyQ10Title"></h3>
 			</div>
-			<div class="progress">
-				<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ10AnsB * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}}%">
-					False: {{survey.surveyQ10AnsB * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %
-				 </div>
+			<div class="col-md-8">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ10AnsA * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}}%">
+						True: {{survey.surveyQ10AnsA * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %
+					 </div>
+				</div>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{survey.surveyQ10AnsB * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}}%">
+						False: {{survey.surveyQ10AnsB * 100 / (survey.surveyQ10AnsA + survey.surveyQ10AnsB)}} %
+					 </div>
+				</div>
 			</div>
 		</div>
 	</div>
+<!-- 	<form name="surveyForm" class="form-horizontal" data-ng-submit="sendEmail()" novalidate>
+			<fieldset>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form> -->
 	<div data-ng-show="authentication.user._id != survey.user._id">
 		<h3>You do not have permission to see the stats for this Survey</h3>
 	</div>

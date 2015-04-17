@@ -13,3 +13,9 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+
+body {
+	/* gives a gradiant background */
+    background-image: url("assets/grey-white-gradient.png");
+    background-repeat: repeat-x;
+}

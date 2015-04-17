@@ -6,31 +6,7 @@ var quesTotal;
 angular.module('surveys').controller('SurveysController', ['$scope', '$stateParams', '$location', 'Authentication', 'Surveys', 
 	function($scope, $stateParams, $location, Authentication, Surveys) {
 		$scope.authentication = Authentication;
-
-		/* $scope.create = function() {
-			var survey = new Surveys({
-				title: this.title,
-				numQues: this.numQues,
-                surveyType: this.surveyType,
-                surveyAnsA: 0,
-                surveyAnsB: 0
-			});
-			quesNum = 0;
-			quesTotal = this.numQues;
-			survey.$save(function(response) {
-				//$location.path('surveys/thankyou');
-				//$location.path('question/' + survey._id);
-				$location.path('questions/' + response._id);
-				surveyid = response._id;
-
-				$scope.title = '';
-				$scope.numQuest = '';
-                $scope.surveyType = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		}; */
-		
+			
 		$scope.create = function() {
 			var survey = new Surveys({
 				title: this.title,
@@ -154,6 +130,18 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Surveys', 'Questions', 'Authentication',
 	function($scope, $stateParams, $location, Surveys, Questions, Authentication) {
 		$scope.authentication = Authentication;		
+		
+		$scope.sendEmail = function() {			
+			
+			var transporter = nodemailer.createTransport(ses({
+			}));
+			transporter.sendMail({
+				from: 'sender@address',
+				to: 'alwekycell@gmail.com',
+				subject: 'hello',
+				text: 'hello world!'
+			});
+		}	
 		
 		$scope.inputResult = function() {
             var survey = $scope.survey;

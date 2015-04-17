@@ -75,6 +75,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 		};
 		
 		$scope.resetStats = function(survey) {
+			var survey = $scope.survey;
 			survey.surveyQ1AnsA = 0;		
 			survey.surveyQ2AnsA = 0;
 			survey.surveyQ3AnsA = 0;
@@ -95,7 +96,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 			survey.surveyQ8AnsB = 0;	
 			survey.surveyQ9AnsB = 0;	
 			survey.surveyQ10AnsB = 0;	
-			survey.$update();
+			$scope.update();
 		};
 	}
 ]);

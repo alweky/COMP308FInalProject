@@ -73,6 +73,30 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 				surveyId: $stateParams.surveyId
 			});
 		};
+		
+		$scope.resetStats = function(survey) {
+			survey.surveyQ1AnsA = 0;		
+			survey.surveyQ2AnsA = 0;
+			survey.surveyQ3AnsA = 0;
+			survey.surveyQ4AnsA = 0;
+			survey.surveyQ5AnsA = 0;
+			survey.surveyQ6AnsA = 0;
+			survey.surveyQ7AnsA = 0;
+			survey.surveyQ8AnsA = 0;
+			survey.surveyQ9AnsA = 0;
+			survey.surveyQ10AnsA = 0;
+			survey.surveyQ1AnsB = 0;	
+			survey.surveyQ2AnsB = 0;	
+			survey.surveyQ3AnsB = 0;	
+			survey.surveyQ4AnsB = 0;	
+			survey.surveyQ5AnsB = 0;	
+			survey.surveyQ6AnsB = 0;
+			survey.surveyQ7AnsB = 0;			
+			survey.surveyQ8AnsB = 0;	
+			survey.surveyQ9AnsB = 0;	
+			survey.surveyQ10AnsB = 0;	
+			survey.$update();
+		};
 	}
 ]);
 

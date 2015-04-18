@@ -1,3 +1,10 @@
+/*
+	Kevin Sau Yeung Kam
+	Survey Applet
+	surveys.client.controller.js
+	This the survey controller with the surveyQuestion controller as well.
+*/
+
 'use strict';
 var surveyid;
 var quesNum = 0;
@@ -152,6 +159,7 @@ angular.module('surveys').controller('SurveysController', ['$scope', '$statePara
 	}
 ]); */
 
+//Used for the Survey input page.
 angular.module('surveysQuestion').controller('SurveysQuestionController', ['$scope', '$stateParams', '$location', 'Surveys', 'Questions', 'Authentication',
 	function($scope, $stateParams, $location, Surveys, Questions, Authentication) {
 		$scope.authentication = Authentication;		
@@ -167,7 +175,7 @@ angular.module('surveysQuestion').controller('SurveysQuestionController', ['$sco
 				text: 'hello world!'
 			});
 		}	
-		
+		//Inputs the resuts of the survey, could definitley be done in a loop, but will do so in another iteration
 		$scope.inputResult = function() {
             var survey = $scope.survey;
             var ansA = survey.surveyAnsA;
